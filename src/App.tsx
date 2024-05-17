@@ -26,7 +26,7 @@ function App() {
 
   return (
     <main>
-      <ImageComponent src="public\mazda.jpg" alt="Description of image" />
+      <ImageComponent src="/mazda.jpg" alt="Description of image" />
       <h1>My todos</h1>
       <button onClick={createTodo}>+ test new</button>
       <ul>

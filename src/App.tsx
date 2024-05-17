@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react";
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
+import ImageComponent from "./components/ImageComponent";
+
 
 const client = generateClient<Schema>();
 
 function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
+
+
+  function deleteTodo(id: string) {
+    client.models.Todo.delete({ id })
+  }
 
   useEffect(() => {
     client.models.Todo.observeQuery().subscribe({
@@ -19,11 +26,14 @@ function App() {
 
   return (
     <main>
+      <ImageComponent src="public\mazda.jpg" alt="Description of image" />
       <h1>My todos</h1>
       <button onClick={createTodo}>+ test new</button>
       <ul>
         {todos.map((todo) => (
-          <li key={todo.id}>{todo.content}</li>
+          <li
+            onClick={() => deleteTodo(todo.id)}
+            key={todo.id}>{todo.content}</li>
         ))}
       </ul>
       <div>

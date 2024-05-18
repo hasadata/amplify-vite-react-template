@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 const generateRandomCookie = () => {
     const randomValue = Math.random().toString(36).substring(2, 15);

@@ -12,7 +12,7 @@ const RandomCookieGenerator = () => {
 
     return (
         <div>
-            <h1>Random Cookie Generator</h1>
+            <h1>Random Cookie Generator Test</h1>
             <p>A new random cookie is set on each request.</p>
         </div>
     );

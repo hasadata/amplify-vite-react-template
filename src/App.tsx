@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
 import ImageComponent from "./components/ImageComponent";
+import RandomCookieGenerator from "./components/RandomCookieGenerator";
 
 
 const client = generateClient<Schema>();
@@ -28,6 +29,7 @@ function App() {
     <main>
       <ImageComponent src="/img/mazda.jpg" alt="Description of image" />
       <h1>My todos</h1>
+      <RandomCookieGenerator />
       <button onClick={createTodo}>+ test new</button>
       <ul>
         {todos.map((todo) => (
